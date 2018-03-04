@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:context="com.example.android.musicalstructure.MainActivity"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/songs"
+            style="@style/tag_style"
+            android:text="@string/songs" />
+
+        <TextView
+            android:id="@+id/albums"
+            style="@style/tag_style"
+            android:text="@string/albums" />
+
+        <TextView
+            android:id="@+id/player"
+            style="@style/tag_style"
+            android:text="@string/play" />
+    </LinearLayout>
+</FrameLayout>

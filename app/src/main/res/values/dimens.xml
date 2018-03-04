@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_width">0dp</dimen>
+    <dimen name="button_padding">8dp</dimen>
+    <dimen name="icon_size">48dp</dimen>
+    <dimen name="grid_img_size">150dp</dimen>
+    <dimen name="top_padd">5dp</dimen>
+    <dimen name="grid_sp">10dp</dimen>
+    <dimen name="padd">16dp</dimen>
+    <dimen name="large_txt">30sp</dimen>
+</resources>
