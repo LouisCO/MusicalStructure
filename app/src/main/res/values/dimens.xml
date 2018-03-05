@@ -9,4 +9,5 @@
     <dimen name="padd">16dp</dimen>
     <dimen name="large_txt">30sp</dimen>
     <dimen name="layout_bott">4dp</dimen>
+    <dimen name="player_img">250dp</dimen>
 </resources>
