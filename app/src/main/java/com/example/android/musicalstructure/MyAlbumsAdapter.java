@@ -49,17 +49,23 @@ public class MyAlbumsAdapter extends ArrayAdapter<MyAlbums> {
         // Find the TextView in the grid_item.xml layout with the ID album_title
         // Get the title from the current MyAlbum object and
         // set this text on the name TextView
-        ((TextView) gridItemView.findViewById(R.id.album_title)).setText(currentAlbum.getAlbumTitle());
+        if (currentAlbum != null) {
+            ((TextView) gridItemView.findViewById(R.id.album_title)).setText(currentAlbum.getAlbumTitle());
+        }
 
         // Find the TextView in the grid_item.xml layout with the ID album_artist
         // Get the artist's name from the current MyAlbum object and
         // set this text on the name TextView
-        ((TextView) gridItemView.findViewById(R.id.album_artist)).setText(currentAlbum.getArtistName());
+        if (currentAlbum != null) {
+            ((TextView) gridItemView.findViewById(R.id.album_artist)).setText(currentAlbum.getArtistName());
+        }
 
         // Find the ImageView in the grid_item.xml layout with the ID album_image
         // Get the image resource ID from the current MyAlbum object and
         // set the image to iconView
-        ((ImageView) gridItemView.findViewById(R.id.album_image)).setImageResource(currentAlbum.getImageResId());
+        if (currentAlbum != null) {
+            ((ImageView) gridItemView.findViewById(R.id.album_image)).setImageResource(currentAlbum.getImageResId());
+        }
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView

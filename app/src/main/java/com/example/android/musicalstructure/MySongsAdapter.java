@@ -51,18 +51,26 @@ public class MySongsAdapter extends ArrayAdapter<MySongs> {
         // Find the TextView in the list_item.xml layout with the ID album_title
         // Get the title from the current MyAlbum object and
         // set this text on the name TextView
-        ((TextView) listItemView.findViewById(R.id.title)).setText(currentMySongs.getSongTitle());
+        if (currentMySongs != null) {
+            ((TextView) listItemView.findViewById(R.id.title)).setText(currentMySongs.getSongTitle());
+        }
 
         // Find the TextView in the list_item.xml layout with the ID album_artist
         // Get the artist's name from the current MyAlbum object and
         // set this text on the name TextView
-        ((TextView) listItemView.findViewById(R.id.artist)).setText(currentMySongs.getArtistName());
+        if (currentMySongs != null) {
+            ((TextView) listItemView.findViewById(R.id.artist)).setText(currentMySongs.getArtistName());
+        }
 
         // Find the ImageView in the list_item.xml layout with the ID album_image
         // Get the image resource ID from the current MyAlbum object and
         // set the image to iconView
-        ((ImageView) listItemView.findViewById(R.id.play_icon)).setImageResource(currentMySongs.getImageResourceId());
-        ((ImageView) listItemView.findViewById(R.id.cover_img)).setImageResource(currentMySongs.getImageResId());
+        if (currentMySongs != null) {
+            ((ImageView) listItemView.findViewById(R.id.play_icon)).setImageResource(currentMySongs.getImageResourceId());
+        }
+        if (currentMySongs != null) {
+            ((ImageView) listItemView.findViewById(R.id.cover_img)).setImageResource(currentMySongs.getImageResId());
+        }
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView

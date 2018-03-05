@@ -24,21 +24,21 @@
             style="@style/album_sgs"
             android:layout_above="@id/album_artist"
             android:textSize="@dimen/large_txt"
-            tools:text="Title" />
+            tools:text="@string/title" />
 
         <TextView
             android:id="@+id/album_artist"
             style="@style/album_sgs"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/layout_bott"
             android:textAppearance="@android:style/TextAppearance.Large"
-            tools:text="Artist" />
+            tools:text="@string/artist" />
     </RelativeLayout>
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/album_listview"
         style="@style/list_style"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/button_padding"
         android:layout_weight="1">
     </ListView>
 </LinearLayout>

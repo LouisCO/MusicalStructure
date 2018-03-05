@@ -7,4 +7,7 @@
     <string name="album_cover_image">album cover image</string>
     <string name="title">Title</string>
     <string name="artist">Artist</string>
+    <string name="skip_to_prev">skip to previous song</string>
+    <string name="play_pause">play/pause</string>
+    <string name="skip_to_next">skip to next</string>
 </resources>

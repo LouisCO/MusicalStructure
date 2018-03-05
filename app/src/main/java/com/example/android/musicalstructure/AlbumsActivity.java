@@ -1,8 +1,8 @@
 package com.example.android.musicalstructure;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -44,6 +44,7 @@ public class AlbumsActivity extends AppCompatActivity {
                 startActivity(playerIntent);
             }
         });
+
         final ArrayList<MyAlbums> albums=new ArrayList<>();
         albums.add(new MyAlbums("Fun.", "Some Nights", R.drawable.some_nights));
         albums.add(new MyAlbums("Arctic Monkeys", "AM", R.drawable.am));
@@ -60,7 +61,7 @@ public class AlbumsActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView,
-                                    View view, int position, long lon) {
+                                    View view, int position, long id) {
 
                 // Create a new intent to open the {@link AlbumSongsActivity}
                 Intent albumSongs=new Intent(AlbumsActivity.this, AlbumSongsActivity.class);

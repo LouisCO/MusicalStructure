@@ -8,4 +8,5 @@
     <dimen name="grid_sp">10dp</dimen>
     <dimen name="padd">16dp</dimen>
     <dimen name="large_txt">30sp</dimen>
+    <dimen name="layout_bott">4dp</dimen>
 </resources>

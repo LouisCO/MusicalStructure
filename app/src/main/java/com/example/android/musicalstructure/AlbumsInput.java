@@ -1,6 +1,7 @@
 package com.example.android.musicalstructure;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *  Created by Lenovo on 04/03/2018.
@@ -101,5 +102,17 @@ class AlbumsInput {
         twoGallants.add(new MySongs("Two Gallants", "Age Of Assasins", R.drawable.ic_play_arrow, R.drawable.two_gallants));
         twoGallants.add(new MySongs("Two Gallants", "Waves Of Grain", R.drawable.ic_play_arrow, R.drawable.two_gallants));
         return twoGallants;
+    }
+
+    static ArrayList<MySongs> allSongs() {
+        ArrayList<MySongs> allSongs=new ArrayList<>();
+        allSongs.addAll(someNights());
+        allSongs.addAll(arcticMonkeys());
+        allSongs.addAll(coldplay());
+        allSongs.addAll(amyWinehouse());
+        allSongs.addAll(sia());
+        allSongs.addAll(twoGallants());
+        Collections.shuffle(allSongs);
+        return allSongs;
     }
 }
