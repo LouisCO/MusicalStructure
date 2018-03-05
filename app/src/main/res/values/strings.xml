@@ -10,4 +10,6 @@
     <string name="skip_to_prev">skip to previous song</string>
     <string name="play_pause">play/pause</string>
     <string name="skip_to_next">skip to next</string>
+    <string name="pause_txt">Music Paused</string>
+    <string name="play_txt">is playing</string>
 </resources>

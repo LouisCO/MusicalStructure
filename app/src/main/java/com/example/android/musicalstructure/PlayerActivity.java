@@ -65,7 +65,7 @@ public class PlayerActivity extends AppCompatActivity {
         String songTitle = songSongs.getStringExtra("song_title");
         String artistName = songSongs.getStringExtra("artist_name");
         int albumImage = songSongs.getIntExtra("album_image", 0);
-        int currentPosition=songSongs.getIntExtra("position", 0);
+        final int currentPosition=songSongs.getIntExtra("position", 0);
 
         // Display album data & cover image
         ((TextView)findViewById(R.id.song_name)).setText(songTitle);
@@ -82,11 +82,12 @@ public class PlayerActivity extends AppCompatActivity {
         prevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mCurrentPosition==current.size()) {
-                    mCurrentPosition=0;
+                if(!(mCurrentPosition>0)) {
+                    mCurrentPosition=(current.size()-1);
                 }
-                else mCurrentPosition--;
-
+                else {
+                    mCurrentPosition--;
+                }
                 String mSongTitle = current.get(mCurrentPosition).getSongTitle();
                 ((TextView)findViewById(R.id.song_name)).setText(mSongTitle);
                 String mArtistName = current.get(mCurrentPosition).getArtistName();
@@ -94,6 +95,23 @@ public class PlayerActivity extends AppCompatActivity {
                 int mAlbumImage = current.get(mCurrentPosition).getImageResId();
                 ((ImageView)findViewById(R.id.song_img)).setImageResource(mAlbumImage);
             }
+        });
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    if(!(mCurrentPosition<(current.size()-1))){
+                        mCurrentPosition=0;
+                    }
+                    else {mCurrentPosition++;
+                    }
+                String mSongTitle = current.get(mCurrentPosition).getSongTitle();
+                ((TextView)findViewById(R.id.song_name)).setText(mSongTitle);
+                String mArtistName = current.get(mCurrentPosition).getArtistName();
+                ((TextView)findViewById(R.id.song_artist)).setText(mArtistName);
+                int mAlbumImage = current.get(mCurrentPosition).getImageResId();
+                ((ImageView)findViewById(R.id.song_img)).setImageResource(mAlbumImage);
+             }
         });
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,31 +119,13 @@ public class PlayerActivity extends AppCompatActivity {
                 if(isPlaying){
                     playButton.setImageResource(R.drawable.ic_pause);
                     isPlaying=false;
-                    Toast.makeText(PlayerActivity.this, "Music Paused", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PlayerActivity.this, getString(R.string.pause_txt), Toast.LENGTH_LONG).show();
                 }
-                    else {
-                        playButton.setImageResource(R.drawable.ic_play_button);
-
-                    Toast.makeText(PlayerActivity.this, mSongTitle + "\u0020is playing", Toast.LENGTH_LONG).show();
-                        isPlaying=true;
-                    }
-            }
-        });
-
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    if(mCurrentPosition==current.size()) {
-                        mCurrentPosition=0;
-                    }
-                    else mCurrentPosition++;
-
-                String mSongTitle = current.get(mCurrentPosition).getSongTitle();
-                ((TextView)findViewById(R.id.song_name)).setText(mSongTitle);
-                String mArtistName = current.get(mCurrentPosition).getArtistName();
-                ((TextView)findViewById(R.id.song_artist)).setText(mArtistName);
-                int mAlbumImage = current.get(mCurrentPosition).getImageResId();
-                ((ImageView)findViewById(R.id.song_img)).setImageResource(mAlbumImage);
+                else {
+                    playButton.setImageResource(R.drawable.ic_play_button);
+                    Toast.makeText(PlayerActivity.this, current.get(mCurrentPosition).getSongTitle() + getString(R.string.play_txt), Toast.LENGTH_LONG).show();
+                    isPlaying=true;
+                }
             }
         });
 
