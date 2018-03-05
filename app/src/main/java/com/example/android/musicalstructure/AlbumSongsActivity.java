@@ -18,6 +18,48 @@ public class AlbumSongsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album_songs);
 
+        // Find the View that shows the songs(MainActivity)
+        TextView songs=findViewById(R.id.songs);
+        // Set a click listener on that View
+        songs.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the songs text is clicked on.
+            @Override
+            public void onClick(View view) {
+                // Create a new intent to open the {@link MainActivity}
+                Intent songsIntent=new Intent(AlbumSongsActivity.this, MainActivity.class);
+                // Start the new activity
+                startActivity(songsIntent);
+            }
+        });
+
+        // Find the View that shows the albums category
+        TextView albums=findViewById(R.id.albums);
+        // Set a click listener on that View
+        albums.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the albums category is clicked on.
+            @Override
+            public void onClick(View view) {
+                // Create a new intent to open the {@link AlbumsActivity}
+                Intent albumsIntent=new Intent(AlbumSongsActivity.this, AlbumsActivity.class);
+                // Start the new activity
+                startActivity(albumsIntent);
+            }
+        });
+
+        // Find the View that shows the player
+        TextView player=findViewById(R.id.player);
+        // Set a click listener on that View
+        player.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the player is clicked on.
+            @Override
+            public void onClick(View view) {
+                // Create a new intent to open the {@link PlayerActivity}
+                Intent playerIntent=new Intent(AlbumSongsActivity.this, PlayerActivity.class);
+                // Start the new activity
+                startActivity(playerIntent);
+            }
+        });
+
         Intent albumSongs = getIntent();
         String albumTitle = albumSongs.getStringExtra("album_title");
         String artistName = albumSongs.getStringExtra("artist_name");
@@ -42,12 +84,10 @@ public class AlbumSongsActivity extends AppCompatActivity {
                         // Create a new intent to open the {@link PlayerActivity}
                         Intent songSongs=new Intent(AlbumSongsActivity.this, PlayerActivity.class);
                         MySongs currentSong=funAlbum.get(position);
-                        // Construct a bundle to pass album data
-                        Bundle sBundle=new Bundle();
-                        sBundle.putString("song_title", currentSong.getSongTitle());
-                        sBundle.putString("artist_name", currentSong.getArtistName());
-                        sBundle.putInt("album_image", currentSong.getImageResId());
-                        songSongs.putExtras(sBundle);
+                        // Pass song data
+                        songSongs.putExtra("song_title", currentSong.getSongTitle());
+                        songSongs.putExtra("artist_name", currentSong.getArtistName());
+                        songSongs.putExtra("album_image", currentSong.getImageResId());
                         // Start the new activity
                         startActivity(songSongs);
                     }
@@ -62,11 +102,9 @@ public class AlbumSongsActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                         Intent songSongs=new Intent(AlbumSongsActivity.this, PlayerActivity.class);
                         MySongs currentSong=amAlbum.get(position);
-                        Bundle sBundle=new Bundle();
-                        sBundle.putString("song_title", currentSong.getSongTitle());
-                        sBundle.putString("artist_name", currentSong.getArtistName());
-                        sBundle.putInt("album_image", currentSong.getImageResId());
-                        songSongs.putExtras(sBundle);
+                        songSongs.putExtra("song_title", currentSong.getSongTitle());
+                        songSongs.putExtra("artist_name", currentSong.getArtistName());
+                        songSongs.putExtra("album_image", currentSong.getImageResId());
                         startActivity(songSongs);
                     }
                 });
@@ -80,11 +118,9 @@ public class AlbumSongsActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                         Intent songSongs=new Intent(AlbumSongsActivity.this, PlayerActivity.class);
                         MySongs currentSong=coldplayAlbum.get(position);
-                        Bundle sBundle=new Bundle();
-                        sBundle.putString("song_title", currentSong.getSongTitle());
-                        sBundle.putString("artist_name", currentSong.getArtistName());
-                        sBundle.putInt("album_image", currentSong.getImageResId());
-                        songSongs.putExtras(sBundle);
+                        songSongs.putExtra("song_title", currentSong.getSongTitle());
+                        songSongs.putExtra("artist_name", currentSong.getArtistName());
+                        songSongs.putExtra("album_image", currentSong.getImageResId());
                         startActivity(songSongs);
                     }
                 });
@@ -99,11 +135,9 @@ public class AlbumSongsActivity extends AppCompatActivity {
                         Intent songSongs=new Intent(AlbumSongsActivity.this, PlayerActivity.class);
                         MySongs currentSong=gallantsAlbum.get(position);
                         // Construct a bundle to pass album data
-                        Bundle sBundle=new Bundle();
-                        sBundle.putString("song_title", currentSong.getSongTitle());
-                        sBundle.putString("artist_name", currentSong.getArtistName());
-                        sBundle.putInt("album_image", currentSong.getImageResId());
-                        songSongs.putExtras(sBundle);
+                        songSongs.putExtra("song_title", currentSong.getSongTitle());
+                        songSongs.putExtra("artist_name", currentSong.getArtistName());
+                        songSongs.putExtra("album_image", currentSong.getImageResId());
                         startActivity(songSongs);
                     }
                 });
@@ -117,11 +151,9 @@ public class AlbumSongsActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                         Intent songSongs=new Intent(AlbumSongsActivity.this, PlayerActivity.class);
                         MySongs currentSong=winehouseAlbum.get(position);
-                        Bundle sBundle=new Bundle();
-                        sBundle.putString("song_title", currentSong.getSongTitle());
-                        sBundle.putString("artist_name", currentSong.getArtistName());
-                        sBundle.putInt("album_image", currentSong.getImageResId());
-                        songSongs.putExtras(sBundle);
+                        songSongs.putExtra("song_title", currentSong.getSongTitle());
+                        songSongs.putExtra("artist_name", currentSong.getArtistName());
+                        songSongs.putExtra("album_image", currentSong.getImageResId());
                         startActivity(songSongs);
                     }
                 });
@@ -135,11 +167,9 @@ public class AlbumSongsActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                         Intent songSongs=new Intent(AlbumSongsActivity.this, PlayerActivity.class);
                         MySongs currentSong=siaAlbum.get(position);
-                        Bundle sBundle=new Bundle();
-                        sBundle.putString("song_title", currentSong.getSongTitle());
-                        sBundle.putString("artist_name", currentSong.getArtistName());
-                        sBundle.putInt("album_image", currentSong.getImageResId());
-                        songSongs.putExtras(sBundle);
+                        songSongs.putExtra("song_title", currentSong.getSongTitle());
+                        songSongs.putExtra("artist_name", currentSong.getArtistName());
+                        songSongs.putExtra("album_image", currentSong.getImageResId());
                         startActivity(songSongs);
                     }
                 });

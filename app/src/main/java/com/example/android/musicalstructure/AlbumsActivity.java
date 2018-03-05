@@ -67,12 +67,10 @@ public class AlbumsActivity extends AppCompatActivity {
                 Intent albumSongs=new Intent(AlbumsActivity.this, AlbumSongsActivity.class);
                 MyAlbums currentMyAlbums=albums.get(position);
 
-                // Construct a bundle to pass album data
-                Bundle alBundle=new Bundle();
-                alBundle.putString("album_title", currentMyAlbums.getAlbumTitle());
-                alBundle.putString("artist_name", currentMyAlbums.getArtistName());
-                alBundle.putInt("album_image", currentMyAlbums.getImageResId());
-                albumSongs.putExtras(alBundle);
+                // Pass album data
+                albumSongs.putExtra("album_title", currentMyAlbums.getAlbumTitle());
+                albumSongs.putExtra("artist_name", currentMyAlbums.getArtistName());
+                albumSongs.putExtra("album_image", currentMyAlbums.getImageResId());
                 // Start the new activity
                 startActivity(albumSongs);
             }

@@ -64,13 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 MySongs currentSong=playlist.get(position);
                 mPosition=position;
 
-                // Construct a bundle to pass song data
-                Bundle sBundle=new Bundle();
-                sBundle.putString("song_title", currentSong.getSongTitle());
-                sBundle.putString("artist_name", currentSong.getArtistName());
-                sBundle.putInt("album_image", currentSong.getImageResId());
-                sBundle.putInt("position", mPosition);
-                songSongs.putExtras(sBundle);
+                // Pass song data
+                songSongs.putExtra("song_title", currentSong.getSongTitle());
+                songSongs.putExtra("artist_name", currentSong.getArtistName());
+                songSongs.putExtra("album_image", currentSong.getImageResId());
+                songSongs.putExtra("position", mPosition);
 
                 // Start the new activity
                 startActivity(songSongs);
